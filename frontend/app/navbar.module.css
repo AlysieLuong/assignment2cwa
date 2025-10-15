@@ -1,0 +1,100 @@
+/*styles navbar container appearance and positioning*/
+.navContainer {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  position: relative;
+  background-color: rgba(173, 216, 230, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+}
+
+/*styles navbar positioning*/
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+}
+
+/*styles navbar link buttons*/
+.navButton {
+  padding: 0.8rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/*styles navbar lnk buttons - when hovering*/
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*holds hamburger menu in navbar*/
+.hamburgerContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/*light/dark mode button*/
+.themeToggle {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background-color: rgba(12, 86, 197, 0.064);
+  color: #1e1e1e;
+  transition: all 0.3s ease;
+}
+
+/*light/dark mode button - hovering */
+.themeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* -----------DARK MODE-----------*/
+/*global effect*/
+/*styles navcontainer*/
+:global(body.dark) .navContainer {
+    background-color: rgba(30, 30, 30, 0.9) !important;
+}
+
+/*styles navbutton*/
+:global(body.dark) .navButton {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #f5f5f5 !important;
+}
+
+/*styles navbutton - hover*/
+:global(body.dark) .navButton:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+/*styles light/dark mode*/
+:global(body.dark) .themeToggle {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
+}
+
+/*styles light/dark mode - hover*/
+:global(body.dark) .themeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/*styles hamburger menu - open*/
+:global(body.dark) .bar,
+:global(body.dark) .barOpen {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
+}

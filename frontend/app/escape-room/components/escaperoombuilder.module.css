@@ -1,0 +1,88 @@
+/* escaperoombuilder.module.css */
+
+:root {
+  /* Set your footer height once; tweak to your actual footer height */
+  --footer-h: 72px;
+}
+
+.container {
+  background-image: url('/images/dragondungeonescaperoom.png');
+  background-size: cover;
+  background-position: center;
+
+  /* Fixed backgrounds can behave weird on mobile & can cause layering issues.
+     Keep it if you want parallax; otherwise consider removing on small screens. */
+  background-attachment: fixed;
+
+  padding: 3rem;
+
+  /* Reserve space so content never slides under a sticky/fixed footer */
+  padding-bottom: calc(var(--footer-h) + 2rem);
+
+  /* Add outer gap in normal flow footers too */
+  margin-bottom: clamp(2rem, 6vh, 4rem);
+
+  position: relative;
+  flex: 1;
+
+  /* Create its own stacking context so ::before doesn't overlap footer */
+  isolation: isolate;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(173, 216, 230, 0.3);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  /* Inner breathing room just in case */
+  padding-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #4ca1af;
+}
+
+.exportButton {
+  width: 100%;
+  background-color: #4ca1af;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.exportButton:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.exportButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Optional: turn off fixed background on small screens to avoid jank */
+@media (max-width: 768px) {
+  .container {
+    background-attachment: scroll;
+  }
+}

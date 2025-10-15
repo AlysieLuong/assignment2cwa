@@ -1,0 +1,35 @@
+/* Main page wrapper */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Content overlay on top of the background */
+.contentOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  color: white;
+  z-index: 2;
+}
+
+.contentOverlay main {
+  max-width: 600px;
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.builderSection {
+  flex: 1;
+  display: flex;
+}

@@ -1,0 +1,23 @@
+/*styles footer container*/
+.footerContainer {
+  position: fixed;            
+  bottom: 0;                    
+  left: 0;                
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top: 2px solid rgba(173, 216, 230, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(173, 216, 230, 0.9);
+  font-size: 0.9rem;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+/*styles foot container - dark mode*/
+:global(body.dark) .footerContainer {
+    background-color: rgba(30, 30, 30, 0.9) !important;
+    border-top-color: rgba(30, 30, 30, 0.9) !important;
+    color: #f5f5f5 !important;
+}
