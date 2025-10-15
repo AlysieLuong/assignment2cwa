@@ -7,13 +7,10 @@ import { exportHTML } from './htmlexporter';
 import styles from './escaperoombuilder.module.css';
 import type { Stage } from './type';
 
-const [stages, setStages] = useState<Stage[]>([]);
-
-
 export default function EscapeRoomBuilder({ defaultBackground = '' }) {
   const [roomName, setRoomName] = useState('My Escape Room');
   const [backgroundImage, setBackgroundImage] = useState(defaultBackground);
-  const [stages, setStages] = useState<Array<{ title: string; description: string; solution: string; stageImage: string }>>([]);
+  const [stages, setStages] = useState<Stage[]>([]);  
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [solution, setSolution] = useState('');
