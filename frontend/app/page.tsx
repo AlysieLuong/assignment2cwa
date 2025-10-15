@@ -7,7 +7,7 @@ import Header from './header';
 import NavBar from './navbar';
 import Footer from './footer';
 
-  const APIURL = "http://ec2-3-87-124-220.compute-1.amazonaws.com:4080";
+  const APIURL = "http://ec2-3-87-124-220.compute-1.amazonaws.com:4080"; //change this with new APIURL
   
   export interface User {
     id: number;
