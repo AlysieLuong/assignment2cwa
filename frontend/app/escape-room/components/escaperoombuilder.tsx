@@ -5,6 +5,10 @@ import StageForm from './stageform';
 import StageList from './stagelist';
 import { exportHTML } from './htmlexporter';
 import styles from './escaperoombuilder.module.css';
+import type { Stage } from './type';
+
+const [stages, setStages] = useState<Stage[]>([]);
+
 
 export default function EscapeRoomBuilder({ defaultBackground = '' }) {
   const [roomName, setRoomName] = useState('My Escape Room');
@@ -42,8 +46,10 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
   };
 
   const handleExport = () => {
-    exportHTML(roomName, stages, timerMinutes);
-  };
+  const uniqueId = new Date().toISOString().replace(/[:.]/g, '-');
+  exportHTML(roomName, stages, timerMinutes, uniqueId);
+};
+
 
   return (
     <div className={styles.container}>

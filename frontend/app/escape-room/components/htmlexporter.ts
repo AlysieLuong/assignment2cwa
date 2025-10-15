@@ -8,7 +8,8 @@ export interface Stage {
 export function exportHTML(
   roomName: string,
   stages: Stage[],
-  timerMinutes: number = 30
+  timerMinutes: number = 30,
+  uniqueId: string | number   // ← allow either
 ): void {
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
@@ -17,12 +18,14 @@ export function exportHTML(
     .replace(/\u2028/g, "\\u2028")
     .replace(/\u2029/g, "\\u2029");
 
+  // 👇 NOTE: removed the accidental duplicate `const html =` block
   const html = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${roomName}</title>
+  <meta name="escape-room-id" content="${String(uniqueId)}">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -168,21 +171,16 @@ export function exportHTML(
     function showStage(index) {
       if (index < 0 || index >= stages.length) return;
       currentStageIndex = index;
-      
       document.querySelectorAll('.stage').forEach(el => el.classList.remove('active'));
       document.getElementById('stage-' + index).classList.add('active');
     }
 
     function previousStage() {
-      if (currentStageIndex > 0) {
-        showStage(currentStageIndex - 1);
-      }
+      if (currentStageIndex > 0) showStage(currentStageIndex - 1);
     }
 
     function nextStage() {
-      if (currentStageIndex < stages.length - 1) {
-        showStage(currentStageIndex + 1);
-      }
+      if (currentStageIndex < stages.length - 1) showStage(currentStageIndex + 1);
     }
 
     function checkSolution(index) {
@@ -224,7 +222,7 @@ export function exportHTML(
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `${roomName}.html`;
+  a.download = `${roomName}-${String(uniqueId)}.html`;
   document.body.appendChild(a);
   a.click();
   a.remove();

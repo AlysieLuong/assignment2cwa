@@ -28,6 +28,7 @@ export class ERConfig extends Model<
   InferCreationAttributes<ERConfig>
 > {
   declare id: CreationOptional<number>;
+  declare uniqueId: string | null;
   declare name: string;
   declare appliedImagesData: AppliedImage[];
   declare createdAt: CreationOptional<Date>;
@@ -40,6 +41,11 @@ ERConfig.init(
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+    },
+    uniqueId: {
+      type: DataTypes.STRING(128),
+      allowNull: true,        // set to false if you want to require it on every row
+      defaultValue: null,
     },
     name: {
       type: DataTypes.STRING,
