@@ -53,7 +53,7 @@ export function exportHTML(
     .stage h3 { color: #4ca1af; margin-bottom: 10px; font-size: 18px; }
     .stage p { color: #666; line-height: 1.5; margin-bottom: 15px; }
     .stage-counter { color: #4ca1af; font-weight: bold; margin-bottom: 10px; }
-    .stage-image { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+    .stage-image { display: block; max-width: 100%; height: auto; max-height: 300px, object-fit: contain; border-radius: 8px; margin-bottom: 0 auto 15px; }
     .code-input {
       width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: monospace; font-size: 14px; margin-top: 10px; color: #000; background: #fff; min-height: 150px; resize: vertical;
     }
