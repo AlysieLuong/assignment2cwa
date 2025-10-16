@@ -70,5 +70,6 @@ ERConfig.init(
     sequelize,
     modelName: 'ERConfig',
     timestamps: true,
+    tableName: 'ERConfig',
   }
 );
