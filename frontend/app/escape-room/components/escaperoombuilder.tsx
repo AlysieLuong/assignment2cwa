@@ -47,6 +47,29 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
   exportHTML(roomName, stages, timerMinutes, uniqueId);
 };
 
+const handleSave = async () => {
+  const uniqueId = new Date().toISOString().replace(/[:.]/g, '-');
+  try {
+    const res = await fetch('/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: roomName,
+        appliedImagesData: stages,   
+        uniqueId,                    
+      }),
+    });
+
+    if (!res.ok) {
+      const msg = await res.text();
+      alert(`Save failed (${res.status}): ${msg}`);
+      return;
+    }
+    alert(`Saved! id: ${uniqueId}`);
+  } catch (e: any) {
+    alert(`Save error: ${String(e?.message || e)}`);
+  }
+};
 
   return (
     <div className={styles.container}>
@@ -80,7 +103,15 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
         >
           ↓ Export as HTML
         </button>
+
+         <button
+          onClick={handleSave}
+          disabled={stages.length === 0}
+          className={styles.exportButton}
+        >
+          Save to DB
+        </button>
+        </div>
       </div>
-    </div>
   );
 }

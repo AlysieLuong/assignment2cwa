@@ -14,10 +14,10 @@ module.exports = {
 
     // Now add the unique constraint
     await queryInterface.addIndex('ERConfig', ['uniqueId'], {
-      name: 'ERConfig_uniqueId_unique',
-      unique: true
-    });
-  },
+  name: 'ERConfig_uniqueId_unique',
+  unique: true,
+  });
+},
 
   async down(queryInterface, Sequelize) {
     await queryInterface.removeIndex('ERConfig', 'ERConfig_uniqueId_unique');
