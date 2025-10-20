@@ -250,7 +250,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
               {savedRooms.length === 0 ? (
                 <p>No saved rooms found.</p>
               ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px'}}>
                   {savedRooms.map((room) => (
                     <div
                       key={room.id}
@@ -265,7 +265,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
                       onMouseEnter={(e) => e.currentTarget.style.background = '#f5f5f5'}
                       onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
                     >
-                      <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>
+                      <div style={{ fontWeight: 'bold', marginBottom: '5px', color: '#666' }}>
                         {room.name}
                       </div>
                       <div style={{ fontSize: '12px', color: '#666' }}>
