@@ -1,3 +1,5 @@
+//CRUD FUNCTION (GET/POST/PATCH/DELETE)
+
 import { NextRequest, NextResponse } from 'next/server';
 import { ERConfig } from '@/app/lib/sequelize';
 

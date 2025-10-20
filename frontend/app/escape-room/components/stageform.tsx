@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './stageform.module.css';
 
+/* Defines the properties the StageForm component expects to receive from its parent */
 interface StageFormProps {
   roomName: string;
   setRoomName: (name: string) => void;
@@ -21,6 +22,7 @@ interface StageFormProps {
   addStage: () => void;
 }
 
+/* Renders the form used to configure room settings and create a new stage */
 export default function StageForm({
   roomName,
   setRoomName,
@@ -38,6 +40,7 @@ export default function StageForm({
   setTimerMinutes,
   addStage,
 }: StageFormProps) {
+    /* Reads a selected file and sets stageImage*/
   const handleStageImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -51,6 +54,7 @@ export default function StageForm({
 
   return (
     <div className={styles.formContainer}>
+      {/* Defines the room name input field */}
       <div className={styles.formGroup}>
         <label className={styles.label}>Room Name</label>
         <input
@@ -62,6 +66,7 @@ export default function StageForm({
         />
       </div>
 
+      {/* Defines the timer duration input (in minutes) */}
       <div className={styles.formGroup}>
         <label className={styles.label}>Timer (minutes)</label>
         <input
@@ -75,8 +80,9 @@ export default function StageForm({
 
       <hr className={styles.divider} />
 
+      {/* Defines the section for creating a new stage */}
       <h3 className={styles.sectionTitle}>Add Stage</h3>
-
+      {/* Stage title input */}
       <input
         type="text"
         placeholder="Stage Title"
@@ -84,7 +90,7 @@ export default function StageForm({
         onChange={(e) => setTitle(e.target.value)}
         className={styles.input}
       />
-
+      {/* Stage description input */}
       <textarea
         placeholder="Stage Description"
         value={description}
@@ -92,7 +98,7 @@ export default function StageForm({
         rows={3}
         className={styles.textarea}
       />
-
+      {/* Stage solution input */}
       <textarea
         placeholder="Solution Code"
         value={solution}
@@ -100,7 +106,7 @@ export default function StageForm({
         rows={4}
         className={styles.textarea}
       />
-
+      {/* Stage image upload */}
       <div className={styles.formGroup}>
         <label className={styles.label}>Stage Image (optional)</label>
         <input
@@ -113,7 +119,7 @@ export default function StageForm({
           <p className={styles.uploadSuccess}>✓ Stage image uploaded</p>
         )}
       </div>
-
+      {/* ability to append configured stage to list*/}
       <button onClick={addStage} className={styles.addButton}>
         + Add Stage
       </button>

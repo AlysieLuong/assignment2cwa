@@ -1,3 +1,4 @@
+/* Container panel for the form area */
 .formContainer {
   background: white;
   border-radius: 0.5rem;
@@ -10,6 +11,7 @@
   margin-bottom: 1.5rem;
 }
 
+/* Label styling (small, bold, colored) */
 .label {
   display: block;
   font-size: 0.875rem;
@@ -18,6 +20,7 @@
   color: #4ca1af;
 }
 
+/* Text inputs and textareas share base visuals */
 .input,
 .textarea {
   width: 100%;
@@ -43,6 +46,7 @@
   margin-bottom: 1rem;
 }
 
+/* File input full-width + text color + button appearance*/
 .fileInput {
   width: 100%;
   color: #000;
@@ -59,12 +63,14 @@
   margin-right: 10px;
 }
 
+/* Upload confirmation text */
 .uploadSuccess {
   font-size: 0.875rem;
   color: #16a34a;
   margin-top: 0.5rem;
 }
 
+/* Divider line between sections */
 .divider {
   border: none;
   border-top: 1px solid #e5e7eb;
@@ -72,6 +78,7 @@
   border-color: #4ca1af;
 }
 
+/* Section heading style */
 .sectionTitle {
   font-size: 1.125rem;
   font-weight: bold;
@@ -79,6 +86,7 @@
   color: #4ca1af;
 }
 
+/* add button for stage creation */
 .addButton {
   width: 100%;
   background-color: #4ca1af;

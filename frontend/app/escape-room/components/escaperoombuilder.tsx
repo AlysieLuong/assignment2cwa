@@ -7,6 +7,7 @@ import { exportHTML } from './htmlexporter';
 import styles from './escaperoombuilder.module.css';
 import type { Stage } from './type';
 
+//defines the escape room builder with all the states
 export default function EscapeRoomBuilder({ defaultBackground = '' }) {
   const [roomName, setRoomName] = useState('My Escape Room');
   const [backgroundImage, setBackgroundImage] = useState(defaultBackground);
@@ -31,6 +32,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
     }
   };  
 
+  //add and delete stages
   const addStage = () => {
     if (title.trim()) {
       setStages([...stages, { title, description, solution, stageImage }]);
@@ -45,6 +47,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
     setStages(stages.filter((_, i) => i !== index));
   };
 
+  //generate HTML download and create/update room in database
   const handleExport = () => {
     const uniqueId = currentUniqueId || new Date().toISOString().replace(/[:.]/g, '-');
     exportHTML(roomName, stages, timerMinutes, uniqueId);
@@ -82,6 +85,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
     }
   };
 
+  //fetch list of saved room and load specific room by uniqueid
   const handleLoadList = async () => {
     try {
       const res = await fetch('/api/users');
@@ -126,6 +130,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
     }
   };
 
+  //delete currently loaded stage from database
   const handleDelete = async () => {
     if (!currentUniqueId) {
       alert('No room loaded to delete');
@@ -164,6 +169,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
       <div className={styles.wrapper}>
         <h1 className={styles.title}>Escape Room</h1>
 
+        {/* Form for room and stage inputs (props wire state + handlers) */}
         <StageForm
           roomName={roomName}
           setRoomName={setRoomName}
@@ -184,6 +190,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
 
         <StageList stages={stages} deleteStage={deleteStage} />
 
+        {/* All the buttons including export, load/save/delete from Database*/}
         <button
           onClick={handleExport}
           disabled={stages.length === 0}
@@ -197,14 +204,14 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
           disabled={stages.length === 0}
           className={styles.exportButton}
         >
-          Save to DB
+          Save to Database
         </button>
 
         <button
           onClick={handleLoadList}
           className={styles.exportButton}
         >
-          Load from DB
+          Load from Database
         </button>
 
         <button
@@ -212,7 +219,7 @@ export default function EscapeRoomBuilder({ defaultBackground = '' }) {
           disabled={!currentUniqueId}
           className={styles.exportButton}
         >
-          Delete from DB
+          Delete from Database
         </button>
 
         {/* Load Modal */}

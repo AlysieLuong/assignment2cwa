@@ -1,3 +1,4 @@
+/* Defines the structure of a single stage item */
 export interface Stage {
   title: string;
   description: string;
@@ -5,11 +6,12 @@ export interface Stage {
   stageImage: string;
 }
 
+/* exports standalone downloadable HTML export of the build escape room*/
 export function exportHTML(
   roomName: string,
   stages: Stage[],
   timerMinutes: number = 30,
-  uniqueId: string | number   // ← allow either
+  uniqueId: string | number  
 ): void {
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
@@ -18,7 +20,7 @@ export function exportHTML(
     .replace(/\u2028/g, "\\u2028")
     .replace(/\u2029/g, "\\u2029");
 
-  // 👇 NOTE: removed the accidental duplicate `const html =` block
+    /*HTML template for exported page with styles and inline logic */
   const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -218,6 +220,7 @@ export function exportHTML(
 </body>
 </html>`;
 
+//create a blob url and trigger download of generated HTML 
   const blob = new Blob([html], { type: "text/html;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");

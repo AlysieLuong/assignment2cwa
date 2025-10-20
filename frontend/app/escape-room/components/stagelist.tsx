@@ -3,17 +3,20 @@
 import React from 'react';
 import styles from './stagelist.module.css';
 
+/* defines the structure of a stage*/
 interface Stage {
   title: string;
   description: string;
   solution: string;
 }
 
+/* defines properties from stagelist*/
 interface StageListProps {
   stages: Stage[];
   deleteStage: (index: number) => void;
 }
 
+/* Renders a list of stages with a delete button for each */
 export default function StageList({ stages, deleteStage }: StageListProps) {
   return (
     <div className={styles.listContainer}>
