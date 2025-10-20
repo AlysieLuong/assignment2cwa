@@ -37,7 +37,7 @@ export default function StageList({ stages, deleteStage }: StageListProps) {
               onClick={() => deleteStage(index)}
               className={styles.deleteButton}
             >
-              🗑️
+              X
             </button>
           </div>
         ))

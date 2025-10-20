@@ -69,6 +69,8 @@
   justify-content: center;
   gap: 0.5rem;
   transition: opacity 0.2s;
+  display: inline-block;
+  margin: 5px;
 }
 
 .exportButton:hover:not(:disabled) {
