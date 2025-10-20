@@ -16,14 +16,20 @@ export default function About() {
         <p>This is a video on explaining what features my website has and the codes used</p>
         <h2 style = {{ marginTop: "1rem"}}><b>Video 1 - Assignment 1</b></h2>
         
-        {/* about website/code video*/}
-        <video controls style={{ marginTop: "1rem", width: "100%", maxWidth: "600px" }}>
+        {/* assignment 1 video*/}
+        <video controls style={{ width: "100%", maxWidth: "600px" }}>
           <source src="/cse3cwassignment1video.mp4" type="video/mp4" />
         </video>
 
         <h2><b>Video 2 - Assignment 2</b></h2>
+        {/* assignment 2 video*/}
 
-      </main>
+        <h2><b>Feedback - Assignment 2</b></h2>
+        <div style={{ display: "flex", flexDirection: "column",gap: "1rem", flexWrap: "wrap" }}>
+          <p>feedback from 2 industry, 2 family and 2 friends</p>
+          <img src="/escaperoomfeedback.png" style={{ width: "100%", maxWidth: "600px" }} /> 
+          </div>      
+        </main>
       <Footer />
     </div>
   );
